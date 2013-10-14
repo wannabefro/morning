@@ -1,6 +1,23 @@
 Morning::Application.routes.draw do
+  # devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+  root 'ember#index'
+
+  namespace :api do
+    devise_for :users
+    devise_scope :user do
+      post "session" => "sessions#create"
+      get "session" => "sessions#show"
+      delete "session" => "sessions#destroy"
+      post "registrations" => "registrations#create"
+    end
+  end
+
+
+
+  # post 'api/sessions' => 'api/sessions#create'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
@@ -39,7 +56,7 @@ Morning::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

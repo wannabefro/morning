@@ -1,0 +1,10 @@
+<form class="navbar-form" {{action login on="submit"}}>
+  <div class="form-group">
+     {{view Ember.TextField id='identification' class='form-control' valueBinding='identification' placeholder='Enter Login'}}
+  </div>
+  <div class="form-group">
+    {{view Ember.TextField id='password' class='form-control' type='password' valueBinding='password' placeholder='Enter Password'  }}
+  </div>
+  {{input class="submit btn btn-primary" type="submit" value="Login"}}
+</form>
+{{#if errorMessage}}<span class="text-danger">{{errorMessage}}</span>{{/if}}

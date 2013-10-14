@@ -12,4 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require vendor/simple_auth
+//= require_self
+//= require morning
+
+// for more details see: http://emberjs.com/guides/application/
+App = Ember.Application.create();
+
 //= require_tree .

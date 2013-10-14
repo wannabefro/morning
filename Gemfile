@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
@@ -34,7 +33,7 @@ gem 'ember-rails'
 gem 'ember-source', '1.0.0'
 
 # Devise
-gem 'devise'
+gem 'devise', '~>3.0.0'
 
 gem 'active_model_serializers'
 
@@ -48,7 +47,7 @@ group :test, :development do
 end
 
 group :test do
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'factory_girl'
   gem 'shoulda'
   gem 'better_errors'
