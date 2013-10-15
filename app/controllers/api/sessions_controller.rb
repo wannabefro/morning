@@ -1,6 +1,7 @@
 class Api::SessionsController < Devise::SessionsController
   prepend_before_action :require_no_authentication, :only => [:create]
   skip_before_action :verify_authenticity_token, :if => Proc.new { |c| c.request.format == 'application/json' }
+  # protect_from_forgery except: :create
   before_action :validate_auth_token, :except => :create
   include Devise::Controllers::Helpers
   include ApiHelper

@@ -1,12 +1,11 @@
 Morning::Application.routes.draw do
-  # devise_for :users
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root 'ember#index'
 
   namespace :api do
-    devise_for :users
     devise_scope :user do
       post "session" => "sessions#create"
       get "session" => "sessions#show"
