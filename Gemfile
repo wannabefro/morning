@@ -34,6 +34,8 @@ gem 'ember-source', '1.0.0'
 
 # Devise
 gem 'devise', '~>3.0.0'
+gem 'omniauth'
+gem 'omniauth-github'
 
 gem 'active_model_serializers'
 
@@ -44,6 +46,7 @@ end
 
 group :test, :development do
   gem 'pry-rails'
+  gem 'certified'
 end
 
 group :test do

@@ -16,7 +16,7 @@
 //= require handlebars
 //= require ember
 //= require ember-data
-//= require vendor/simple_auth
+//= require vendor/ember-simple-auth
 //= require_self
 //= require morning
 

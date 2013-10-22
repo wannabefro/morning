@@ -11,6 +11,8 @@ Morning::Application.routes.draw do
       get "session" => "sessions#show"
       delete "session" => "sessions#destroy"
       post "registrations" => "registrations#create"
+
+
     end
   end
 
