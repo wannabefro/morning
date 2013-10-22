@@ -1,10 +1,19 @@
-<form class="navbar-form" {{action login on="submit"}}>
-  <div class="form-group">
-     {{view Ember.TextField id='identification' class='form-control' valueBinding='identification' placeholder='Enter Login'}}
-  </div>
-  <div class="form-group">
-    {{view Ember.TextField id='password' class='form-control' type='password' valueBinding='password' placeholder='Enter Password'  }}
-  </div>
-  {{input class="submit btn btn-primary" type="submit" value="Login"}}
-</form>
-{{#if errorMessage}}<span class="text-danger">{{errorMessage}}</span>{{/if}}
+<div class="modal-body">
+  <form class="navbar-form">
+    <div class="form-group">
+       {{view Ember.TextField id='identification' class='form-control' valueBinding='identification' placeholder='Enter Login'}}
+    </div>
+    <div class="form-group">
+      {{view Ember.TextField id='password' class='form-control' type='password' valueBinding='password' placeholder='Enter Password'  }}
+    </div>
+    {{!-- {{input class="submit btn btn-primary" data-dismiss="modal" type="submit" value="Login"}} --}}
+    <button type="submit" {{ action 'login' }} value="Login" data-dismiss="modal" class="submit btn btn-primary">Sign In</button>
+  </form>
+  {{#if errorMessage}}<span class="text-danger">{{errorMessage}}</span>{{/if}}
+
+</div>
+<div class="modal-footer">
+  {{!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> --}}
+  {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+  <button type="submit" {{ action 'loginGithub' }} value="Login" data-dismiss="modal" class="submit btn btn-primary">Sign In with Github</button>
+</div>

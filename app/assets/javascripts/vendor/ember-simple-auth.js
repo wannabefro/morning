@@ -103,6 +103,25 @@ Ember.SimpleAuth.LoginControllerMixin = Ember.Mixin.create({
           Ember.tryInvoke(self, 'loginFailed', arguments);
         });
       }
+    },
+
+    loginGithub: function() {
+      var self = this;
+      Ember.$.ajax('/api/omniauth', {
+        type: 'GET',
+        contentType: 'application/json'
+      }).then(function(response) {
+        self.get('session').setup(response);
+        var attemptedTransition = self.get('session.attemptedTransition');
+        if (attemptedTransition) {
+          attemptedTransition.retry();
+          self.set('session.attemptedTransition', null);
+        } else {
+          self.transitionToRoute(Ember.SimpleAuth.routeAfterLogin);
+        }
+      }, function() {
+        Ember.tryInvoke(self, 'loginFailed', arguments);
+      });
     }
   }
 });
